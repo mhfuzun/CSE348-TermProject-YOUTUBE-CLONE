@@ -1,0 +1,83 @@
+@startchen
+
+entity USERS {
+user_id
+username
+password
+user_image
+full_name
+email
+country
+joined_on
+bio
+}
+
+entity CHANNELS {
+channel_id
+owner_id
+channel_image
+name
+description
+created_on
+category
+}
+
+entity VIDEOS {
+video_id
+channel_id
+title
+description
+url
+duration_seconds
+uploaded_at
+view_count
+like_count
+}
+
+entity SUBSCRIPTIONS {
+subscription_id
+subscriber_id
+channel_id
+subscribed_at
+}
+
+entity COMMENTS {
+comment_id
+video_id
+user_id
+parent_comment_id
+body
+posted_at
+}
+
+relationship CommentBy {
+}
+relationship CommentedIn {
+}
+
+USERS -1- CommentBy
+CommentBy -N- COMMENTS
+VIDEOS -1- CommentedIn
+CommentedIn -N- COMMENTS
+
+relationship Subscriber {
+}
+relationship Subscribed {
+}
+
+USERS -1- Subscriber
+Subscriber -N- SUBSCRIPTIONS
+CHANNELS -1- Subscribed
+Subscribed -N- SUBSCRIPTIONS
+
+relationship ChannelHas {
+}
+CHANNELS -1- ChannelHas
+ChannelHas -N- VIDEOS
+
+relationship UserHas {
+}
+USERS -1- UserHas
+UserHas -N- CHANNELS
+
+@endchen

@@ -1,0 +1,77 @@
+name	link	description
+Jombo	https://www.youtube.com/@Jombo1	YouTube channel: Jombo
+The Coding Sloth	https://www.youtube.com/@TheCodingSloth	YouTube channel: The Coding Sloth
+crin	https://www.youtube.com/@realcrin	YouTube channel: crin
+CroatCode	https://www.youtube.com/@CroatCode	YouTube channel: CroatCode
+freeCodeCamp.org	https://www.youtube.com/@freecodecamp	YouTube channel: freeCodeCamp.org
+Gohar Khan	https://www.youtube.com/@goharsguide	YouTube channel: Gohar Khan
+Eray Sona	https://www.youtube.com/@eraysona	YouTube channel: Eray Sona
+easy, actually	https://www.youtube.com/@easyactually	YouTube channel: easy, actually
+Tim Kim	https://www.youtube.com/@timkimdotcom	YouTube channel: Tim Kim
+Kevin Wood | Robotics & AI	https://www.youtube.com/@kevinwoodrobotics	YouTube channel: Kevin Wood | Robotics & AI
+Devslopes	https://www.youtube.com/@devslopes	YouTube channel: Devslopes
+The Syntax Squad01	https://www.youtube.com/@TheSyntaxSquad01	YouTube channel: The Syntax Squad01
+Coding with Lewis	https://www.youtube.com/@CodingWithLewis	YouTube channel: Coding with Lewis
+The Programmers Realm	https://www.youtube.com/@ProgrammersRealm	YouTube channel: The Programmers Realm
+AI Toolz	https://www.youtube.com/@AIToolzai	YouTube channel: AI Toolz
+Shakira and 2 more	http://www.youtube.com/@Shakira	YouTube channel: Shakira and 2 more
+Taylor Swift	https://www.youtube.com/channel/UCqECaJ8Gagnn7YCbPEzWH6g	YouTube channel: Taylor Swift
+Sabrina Carpenter	https://www.youtube.com/channel/UCPKWE1H6xhxwPlqUlKgHb_w	YouTube channel: Sabrina Carpenter
+Justin Bieber	https://www.youtube.com/channel/UCIwFjwMjI0y7PDBVEO9-bkQ	YouTube channel: Justin Bieber
+Lady Gaga	https://www.youtube.com/channel/UCNL1ZadSjHpjm4q9j2sVtOA	YouTube channel: Lady Gaga
+Billie Eilish	https://www.youtube.com/channel/UCiGm_E4ZwYSHV3bcW1pnSeQ	YouTube channel: Billie Eilish
+Olivia Rodrigo	https://www.youtube.com/channel/UCy3zgWom-5AGypGX_FVTKpg	YouTube channel: Olivia Rodrigo
+T-Series Telugu	https://www.youtube.com/@TseriesTelugu	YouTube channel: T-Series Telugu
+Fouad Jned and Bessan Ismail Music	http://www.youtube.com/@fouadjned	YouTube channel: Fouad Jned and Bessan Ismail Music
+Brown Town Music	https://www.youtube.com/@browntownmusic	YouTube channel: Brown Town Music
+Ava Max	https://www.youtube.com/channel/UCOwgc8DswjoBMuuUU2ScPvQ	YouTube channel: Ava Max
+Bruno Mars	https://www.youtube.com/channel/UCoUM-UJ7rirJYP8CQ0EIaHA	YouTube channel: Bruno Mars
+Katy Perry	https://www.youtube.com/channel/UCYvmuw-JtVrTZQ-7Y4kd63Q	YouTube channel: Katy Perry
+ROSÉ and Bruno Mars	http://www.youtube.com/@roses_are_rosie	YouTube channel: ROSÉ and Bruno Mars
+Kehlani	https://www.youtube.com/channel/UCuE1A4MDBt8YkgUkRAKMtjw	YouTube channel: Kehlani
+Laufey	https://www.youtube.com/channel/UChpKl3waLmccNeYH9LGYjUQ	YouTube channel: Laufey
+HYBE LABELS	https://www.youtube.com/@HYBELABELS	YouTube channel: HYBE LABELS
+Gracie Abrams	https://www.youtube.com/channel/UCwXDwwxNVRXPcPk7ABkakdA	YouTube channel: Gracie Abrams
+Lady Gaga and Doechii	http://www.youtube.com/@LadyGagaVEVO	YouTube channel: Lady Gaga and Doechii
+Chris Brown	https://www.youtube.com/channel/UCcYrdFJF7hmPXRNaWdrko4w	YouTube channel: Chris Brown
+Owl City	https://www.youtube.com/channel/UCyo4FFY5_6v_ZzPl-Fq6FZw	YouTube channel: Owl City
+Sexyy Red	https://www.youtube.com/channel/UC28rc3PHWPJib68G-VqpJ3w	YouTube channel: Sexyy Red
+Tyla	https://www.youtube.com/channel/UC8HOgNWipVorrlBH8oN2R-A	YouTube channel: Tyla
+kesha	https://www.youtube.com/channel/UCh1bAdm-p_kpf_-a2vpCyHw	YouTube channel: kesha
+Jutes	https://www.youtube.com/channel/UCcJmA7v3F1swgu_5JiwH4Ug	YouTube channel: Jutes
+Zara Larsson	https://www.youtube.com/channel/UCjNRJBlxvvS0UXAT2Ack-QQ	YouTube channel: Zara Larsson
+BLAST SLAM Dota 2	https://www.youtube.com/@BLASTDota	YouTube channel: BLAST SLAM Dota 2
+LikeARoss	https://www.youtube.com/@LikeARossYT	YouTube channel: LikeARoss
+ADMINO Gaming	https://www.youtube.com/@admino_gaming19	YouTube channel: ADMINO Gaming
+Red Arcade	https://www.youtube.com/@RedArcade	YouTube channel: Red Arcade
+Skooby	https://www.youtube.com/@SkoobyCSGO	YouTube channel: Skooby
+GAMETIME HIGHLIGHTS	https://www.youtube.com/@TheGametimeHighlights	YouTube channel: GAMETIME HIGHLIGHTS
+PUBG SHOW	https://www.youtube.com/@PUBGSHOW-iq2ns	YouTube channel: PUBG SHOW
+Daily Valorant	https://www.youtube.com/@DailyValorantqq	YouTube channel: Daily Valorant
+OPLOLReplay	https://www.youtube.com/@oplolreplay	YouTube channel: OPLOLReplay
+SXSW	https://www.youtube.com/@SXSW	YouTube channel: SXSW
+Mrwhosetheboss	https://www.youtube.com/@Mrwhosetheboss	YouTube channel: Mrwhosetheboss
+The Studio	https://www.youtube.com/@TheStudio	YouTube channel: The Studio
+Marques Brownlee	https://www.youtube.com/@mkbhd	YouTube channel: Marques Brownlee
+The Quantified Scientist	https://www.youtube.com/@TheQuantifiedScientist	YouTube channel: The Quantified Scientist
+Mrwhosetheboss and Marques Brownlee	http://www.youtube.com/@Mrwhosetheboss	YouTube channel: Mrwhosetheboss and Marques Brownlee
+Mark Ellis Reviews	https://www.youtube.com/@MarkEllisReviews	YouTube channel: Mark Ellis Reviews
+Eagles	https://www.youtube.com/channel/UCPTypnDNlOZVnD7MY30_YBw	YouTube channel: Eagles
+Popular Science	https://www.youtube.com/@popularscience	YouTube channel: Popular Science
+Harvard Business Review and Dr. Arthur Brooks	http://www.youtube.com/@harvardbusinessreview	YouTube channel: Harvard Business Review and Dr. Arthur Brooks
+Joseph Raczynski	https://www.youtube.com/@joerazz	YouTube channel: Joseph Raczynski
+MIT Technology Review	https://www.youtube.com/@technologyreview	YouTube channel: MIT Technology Review
+BBC World Service	https://www.youtube.com/@BBCWorldService	YouTube channel: BBC World Service
+SBS Dateline	https://www.youtube.com/@SBSDateline	YouTube channel: SBS Dateline
+DW Documentary	https://www.youtube.com/@DWDocumentary	YouTube channel: DW Documentary
+Free Documentary	https://www.youtube.com/@FreeDocumentary	YouTube channel: Free Documentary
+Fire of Learning	https://www.youtube.com/@Fireoflearning	YouTube channel: Fire of Learning
+Brain Matters	https://www.youtube.com/@brainmatters2623	YouTube channel: Brain Matters
+Al Jazeera English	https://www.youtube.com/@aljazeeraenglish	YouTube channel: Al Jazeera English
+NOVA PBS Official	https://www.youtube.com/@novapbs	YouTube channel: NOVA PBS Official
+CNA Insider	https://www.youtube.com/@CNAInsider	YouTube channel: CNA Insider
+History of Innovations	https://www.youtube.com/@historyofinnovations	YouTube channel: History of Innovations
+The Travel Edit	https://www.youtube.com/@thetraveleditofficial	YouTube channel: The Travel Edit
+The People Profiles	https://www.youtube.com/@PeopleProfiles	YouTube channel: The People Profiles
+Our Stories	https://www.youtube.com/@OurStories	YouTube channel: Our Stories
+American Experience | PBS	https://www.youtube.com/@AmericanExperiencePBS	YouTube channel: American Experience | PBS

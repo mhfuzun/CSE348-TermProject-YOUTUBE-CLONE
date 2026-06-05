@@ -1,0 +1,43 @@
+@startuml
+title Channel and Subscription Activity
+
+start
+:Open channel.php with channel_id;
+:ControlChannel validates channel_id;
+
+if (channel_id invalid?) then (yes)
+    :Return 404 view;
+    stop
+else (no)
+    :ChannelService loads channel page;
+endif
+
+if (Channel exists?) then (no)
+    :Return 404 view;
+    stop
+else (yes)
+    :Render channel.php;
+endif
+
+if (User clicks Subscribe?) then (yes)
+    if (User logged in?) then (yes)
+        :Load channel;
+        :SubscribeRepository inserts subscription;
+        :Redirect back to channel page;
+    else (no)
+        :Return 401 view;
+    endif
+endif
+
+if (User clicks Unsubscribe?) then (yes)
+    if (User logged in?) then (yes)
+        :Load channel;
+        :SubscribeRepository deletes subscription;
+        :Redirect back to channel page;
+    else (no)
+        :Return 401 view;
+    endif
+endif
+
+stop
+@enduml

@@ -1,0 +1,53 @@
+@startuml
+title Watch, Comment and Like Activity
+
+start
+:Open watch.php with video_id;
+:ControlWatch validates video_id;
+
+if (video_id invalid?) then (yes)
+    :Return 404 view;
+    stop
+else (no)
+    :WatchService increments view_count;
+    :WatchService loads video;
+endif
+
+if (Video exists?) then (no)
+    :Return 404 view;
+    stop
+else (yes)
+    :CommentService loads comments;
+    :Build parent-child comment thread;
+    :Render watch.php;
+endif
+
+if (User clicks like?) then (yes)
+    if (User logged in?) then (yes)
+        :ControlWatch likeVideo;
+        :Increase like_count by 1;
+        :Redirect back to watch.php;
+    else (no)
+        :Show 404/login problem page;
+    endif
+endif
+
+if (User submits comment or reply?) then (yes)
+    :ControlComment reads video_id, body, parent_comment_id;
+    if (User logged in and values valid?) then (yes)
+        :CommentService creates comment;
+        :CommentRepository inserts COMMENTS row;
+        :Redirect back to watch.php;
+    else (no)
+        :Return error view;
+    endif
+endif
+
+if (User deletes own comment?) then (yes)
+    :ControlComment validates comment_id and video_id;
+    :Delete comment for current user;
+    :Redirect back to watch.php;
+endif
+
+stop
+@enduml

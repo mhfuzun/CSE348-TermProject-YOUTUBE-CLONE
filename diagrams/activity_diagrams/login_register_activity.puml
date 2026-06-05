@@ -1,0 +1,42 @@
+@startuml
+title Login and Register Activity
+
+start
+:Open login or register page;
+
+if (User has account?) then (yes)
+    :Enter username and password;
+    :Submit login form;
+    :ControlLogin reads POST values;
+
+    if (Missing fields?) then (yes)
+        :Redirect to login failed page;
+        stop
+    else (no)
+        :AuthService checks username and password;
+        if (User found?) then (yes)
+            :SessionController creates session;
+            :Redirect to feed.php with user_id;
+            stop
+        else (no)
+            :Redirect to login failed page;
+            stop
+        endif
+    endif
+else (no)
+    :Enter username, email, full name and password;
+    :Submit register form;
+    :ControlRegister reads POST values;
+    :AuthService creates UserAccount;
+    :UserRepository inserts USERS row;
+
+    if (User created?) then (yes)
+        :Redirect to register success page;
+        stop
+    else (no)
+        :Redirect to register failed page;
+        stop
+    endif
+endif
+
+@enduml

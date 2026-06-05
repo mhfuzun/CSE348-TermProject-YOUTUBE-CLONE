@@ -1,0 +1,52 @@
+Table USERS {
+  user_id int [pk]
+  username varchar
+  password varchar
+  image_url varchar
+  full_name varchar
+  email varchar
+  country varchar
+  bio varchar
+  joined_on date
+}
+
+Table CHANNELS {
+  channel_id int [pk]
+  name varchar
+  channel_image varchar
+  owner_id int
+  description varchar
+  created_on date
+  category varchar
+}
+
+Table VIDEOS {
+  video_id int [pk]
+  channel_id int [ref: > CHANNELS.channel_id]
+  title varchar
+  description text
+  url varchar
+  duration_seconds int
+  uploaded_at date
+  view_count int
+  like_count int
+}
+
+Table COMMENTS {
+  comment_id int [pk]
+  video_id int [ref: > VIDEOS.video_id]
+  user_id int [ref: > USERS.user_id]
+  parent_comment_id int [ref: > COMMENTS.comment_id, null]
+  body varchar
+  posted_at date
+}
+
+Table SUBSCRIPTIONS {
+  subscriber_id int [ref: > USERS.user_id]
+  channel_id int [ref: > CHANNELS.channel_id]
+  subscribed_at date
+
+  indexes {
+    (subscriber_id, channel_id) [pk]
+  }
+}

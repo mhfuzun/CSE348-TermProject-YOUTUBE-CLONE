@@ -1,0 +1,29 @@
+@startuml
+title Arbitrary SQL Page Activity
+
+start
+:Open sql.php;
+:Show SQL textarea and Execute button;
+:User types SQL query;
+:Submit form with POST sqlTextArea;
+:Connect to MySQL database;
+:Run mysqli_query with typed SQL;
+:Echo executed query in block;
+
+if (Query invalid?) then (yes)
+    :Display MySQL error message;
+    stop
+else (no)
+    if (Query starts with SELECT?) then (yes)
+        :Read result-set columns;
+        :Render HTML table headers;
+        :Render up to 10 rows;
+        stop
+    else (INSERT/UPDATE/DELETE)
+        :Read mysqli affected rows;
+        :Display affected rows;
+        stop
+    endif
+endif
+
+@enduml

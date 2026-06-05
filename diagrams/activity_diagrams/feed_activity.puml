@@ -1,0 +1,31 @@
+@startuml
+title Feed Page Activity
+
+start
+:Open feed.php;
+:App dispatches request to ControlFeed;
+
+if (User logged in?) then (yes)
+    :FeedService gets subscribed videos;
+    :VideoRepository selects latest videos from subscribed channels;
+    :Order videos by uploaded_at DESC;
+else (no)
+    :Subscribed video list is empty;
+endif
+
+:FeedService gets top channel videos;
+:FeedService gets top 5 channels by subscriber count;
+:Create FeedPage model;
+:Render feed.php;
+:Show subscribed videos;
+:Show top channel videos;
+:Show horizontal top channel cards;
+
+if (User logged in?) then (yes)
+    :Show user profile section;
+else (no)
+    :Show login/profile message;
+endif
+
+stop
+@enduml

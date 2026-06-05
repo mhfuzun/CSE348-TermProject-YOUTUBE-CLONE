@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammet Furkan UZUN</title>
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            align-items: center;
+            background: #f4f7fb;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+
+        .install-button {
+            font-size: 1.05rem;
+            min-width: 180px;
+            padding: 0.85rem 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <form action="install.php" method="get" id="install-form">
+            <button type="submit" class="btn btn-primary install-button">Install Database</button>
+        </form>
+    </main>
+    <script>
+        const installForm = document.getElementById("install-form");
+        const installButton = installForm.querySelector("button");
+
+        installForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            installButton.disabled = true;
+            installButton.textContent = "Installing...";
+
+            try {
+                const response = await fetch(installForm.action, { method: "GET" });
+                const result = await response.text();
+
+                if (!response.ok || /error|failed|could not|sql error/i.test(result)) {
+                    throw new Error(result.replace(/<[^>]*>/g, " ").trim());
+                }
+
+                window.location.href = "login.php";
+            } catch (error) {
+                alert(error.message || "Installation failed.");
+                installButton.disabled = false;
+                installButton.textContent = "Install Database";
+            }
+        });
+    </script>
+</body>
+</html>
