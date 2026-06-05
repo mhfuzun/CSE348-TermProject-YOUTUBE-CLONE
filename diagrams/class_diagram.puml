@@ -1,0 +1,192 @@
+@startuml
+title MiniTube High Level Class Diagram
+
+skinparam classAttributeIconSize 0
+
+package "Core" {
+    class App {
+        - Router router
+        - PdoDatabaseAdapter db
+        - SessionController sessionController
+        + run()
+        + dispatch(uri, method) : View
+    }
+
+    class Router {
+        - routes
+        + get(uri, action)
+        + post(uri, action)
+        + dispatch(uri, method, controller) : View
+    }
+
+    class View {
+        - page
+        - title
+        - data
+        - layout
+        + render() : string
+        + addData(key, value)
+        + e(value) : string
+    }
+}
+
+package "Controller Layer" {
+    class Controller {
+        - PdoDatabaseAdapter db
+        - SessionController sessionController
+        - User user
+        + getDb() : PdoDatabaseAdapter
+        + getSessionController() : SessionController
+        + getUser() : User
+        + isLogined() : bool
+    }
+
+    class ControlWatch {
+        - Controller controller
+        - WatchService videoService
+        - CommentService commentService
+        + getWatch() : View
+        + likeVideo() : View
+    }
+
+    class ControlFeed
+    class ControlChannel
+    class ControlLogin
+    class ControlRegister
+    class ControlComment
+}
+
+package "Service Layer" {
+    abstract class Service {
+        - PdoDatabaseAdapter db
+        + getDb() : PdoDatabaseAdapter
+    }
+
+    class WatchService {
+        - VideoRepository videoRepository
+        + getVideoByVideoId(videoId) : VideoContent
+        + increaseViewCount(videoId) : bool
+        + increaseLikeCount(videoId) : bool
+    }
+
+    class CommentService {
+        - CommentRepository commentRepository
+        + createComment(videoId, user, body, parentCommentId) : CommentContent
+        + deleteComment(commentId, user) : bool
+        + getCommentsByVideoId(video) : CommentContent[]
+    }
+
+    class FeedService
+    class ChannelService
+    class AuthService
+}
+
+package "Repository Layer" {
+    abstract class Repository {
+        - DatabaseAdapterInterface db
+        + getDb() : DatabaseAdapterInterface
+    }
+
+    class VideoRepository {
+        - tableName
+        + getVideoByVideoId(videoId) : VideoContent
+        + increaseViewCount(videoId) : bool
+        + increaseLikeCount(videoId) : bool
+        + getVideosByChannelId(channel) : Video[]
+    }
+
+    class CommentRepository {
+        - tableName
+        + createComment(comment) : int
+        + deleteComment(commentId, userId) : bool
+        + getCommentsWithVideo(videoId) : CommentContent[]
+    }
+
+    class UserRepository
+    class ChannelRepository
+    class SubscribeRepository
+}
+
+package "Database" {
+    interface DatabaseAdapterInterface
+
+    class PdoDatabaseAdapter {
+        - PDO pdo
+        + connect(config)
+        + getPDO() : PDO
+        + insert(tableName, data) : int
+        + select(tableName, conditions, columns, limit) : array
+        + update(tableName, conditions, data, limit) : int
+        + delete(tableName, conditions, limit) : int
+        + count(tableName, conditions) : int
+    }
+}
+
+package "Models / DTOs" {
+    class User
+    class Channel
+    class Video
+    class VideoContent
+    class Comment
+    class CommentContent
+    class WatchWindow
+    class FeedPage
+    class ChannelPage
+}
+
+package "Session & Security" {
+    class SessionController
+    class Common
+    class Password
+}
+
+App *-- Router
+App *-- PdoDatabaseAdapter
+App *-- SessionController
+App --> Controller : creates request context
+App --> View : renders
+Router --> Controller : dispatches to
+Router --> View : returns
+
+ControlWatch --> Controller
+ControlFeed --> Controller
+ControlChannel --> Controller
+ControlLogin --> Controller
+ControlRegister --> Controller
+ControlComment --> Controller
+
+ControlWatch *-- WatchService
+ControlWatch *-- CommentService
+ControlWatch --> WatchWindow : builds
+ControlWatch --> View : returns
+
+Service <|-- WatchService
+Service <|-- CommentService
+Service <|-- FeedService
+Service <|-- ChannelService
+Service <|-- AuthService
+
+WatchService *-- VideoRepository
+CommentService *-- CommentRepository
+
+Repository <|-- VideoRepository
+Repository <|-- CommentRepository
+Repository <|-- UserRepository
+Repository <|-- ChannelRepository
+Repository <|-- SubscribeRepository
+
+DatabaseAdapterInterface <|.. PdoDatabaseAdapter
+Repository --> DatabaseAdapterInterface
+Service --> PdoDatabaseAdapter
+Controller --> PdoDatabaseAdapter
+Controller --> SessionController
+
+VideoContent --|> Video
+CommentContent --|> Comment
+WatchWindow *-- VideoContent
+WatchWindow *-- CommentContent
+FeedPage o-- VideoContent
+ChannelPage o-- Channel
+ChannelPage o-- Video
+
+@enduml

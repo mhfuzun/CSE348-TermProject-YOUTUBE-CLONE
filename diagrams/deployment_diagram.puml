@@ -1,0 +1,43 @@
+@startuml
+title MiniTube Deployment Diagram
+
+skinparam componentStyle rectangle
+
+actor "Client Browser" as Client
+
+node "User Device" {
+    artifact "HTML/CSS/JS\nBootstrap assets" as FrontendAssets
+}
+
+node "Web Server\nApache / PHP built-in server" as WebServer {
+    artifact "PHP Entry Points\nlogin.php, feed.php,\nwatch.php, channel.php,\napi.php" as EntryPoints
+
+    node "Application Runtime" as Runtime {
+        component "Core\nApp, Router, View" as Core
+        component "Controllers\nControlLogin, ControlFeed,\nControlWatch, ControlChannel,\nControlComment" as Controllers
+        component "Services\nAuth, Feed, Watch,\nChannel, Comment" as Services
+        component "Repositories\nUser, Video, Channel,\nSubscribe, Comment" as Repositories
+        component "SessionController" as Session
+        component "Security Helpers\nCommon, Password" as Security
+    }
+}
+
+database "MySQL Database\nUSERS, CHANNELS, VIDEOS,\nSUBSCRIPTIONS, COMMENTS" as Database
+
+folder "Seed / Static Data\nseed.sql, txt_files" as SeedData
+folder "Data Collector\nPython scripts" as Collector
+
+Client --> EntryPoints : HTTP GET/POST
+EntryPoints --> Core : bootstrap App
+Core --> Controllers : dispatch route
+Controllers --> Services : execute use case
+Controllers --> Session : read/write login state
+Controllers --> Security : validate input / password
+Services --> Repositories : request domain data
+Repositories --> Database : SQL via PDO
+Core --> FrontendAssets : render views with assets
+
+Collector ..> SeedData : collects sample data
+SeedData ..> Database : install / seed
+
+@enduml

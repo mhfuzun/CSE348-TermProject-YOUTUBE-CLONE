@@ -1,0 +1,70 @@
+@startuml
+title Watch Page Request Sequence
+
+actor "Client Browser" as Client
+participant "HTTP Entry\nwatch.php" as HTTP
+participant "App" as App
+participant "Router" as Router
+participant "ControlWatch" as Controller
+participant "WatchService" as WatchService
+participant "CommentService" as CommentService
+participant "VideoRepository" as VideoRepository
+participant "CommentRepository" as CommentRepository
+participant "PdoDatabaseAdapter / PDO" as DB
+participant "View" as View
+participant "watch.php + main.php\npage templates" as Templates
+
+Client -> HTTP : GET /watch.php?video_id=123
+HTTP -> App : include Core/App.php\nnew App().run()
+App -> App : read REQUEST_URI and REQUEST_METHOD
+App -> Router : dispatch(uri, "GET", base Controller)
+Router -> Router : match route\nwatch.php -> ControlWatch@getWatch
+Router -> Controller : new ControlWatch(base Controller)
+Controller -> WatchService : new WatchService(db)
+Controller -> CommentService : new CommentService(db)
+
+Router -> Controller : getWatch()
+Controller -> Controller : Common::get("video_id")\nvalidate numeric id
+
+alt invalid video_id
+    Controller --> Router : View("404", "404")
+else valid video_id
+    Controller -> WatchService : increaseViewCount(123)
+    WatchService -> VideoRepository : increaseViewCount(123)
+    VideoRepository -> DB : UPDATE VIDEOS SET view_count = view_count + 1
+    DB --> VideoRepository : affected rows
+    VideoRepository --> WatchService : bool
+
+    Controller -> WatchService : getVideoByVideoId(123)
+    WatchService -> VideoRepository : getVideoByVideoId(123)
+    VideoRepository -> DB : SELECT video + channel + uploader data
+    DB --> VideoRepository : row
+    VideoRepository --> WatchService : VideoContent
+    WatchService --> Controller : VideoContent
+
+    alt video not found
+        Controller --> Router : View("404", "404")
+    else video found
+        Controller -> CommentService : getCommentsByVideoId(video)
+        CommentService -> CommentRepository : getCommentsWithVideo(video_id)
+        CommentRepository -> DB : SELECT comments with users
+        DB --> CommentRepository : rows
+        CommentRepository --> CommentService : CommentContent[]
+        CommentService -> CommentService : group replies under parent comments
+        CommentService --> Controller : top-level CommentContent[]
+
+        Controller -> Controller : new WatchWindow(video, comments)
+        Controller --> Router : View("watch", video title,\n{watchWindow})
+    end
+end
+
+Router --> App : View
+App -> View : addData("user", session user)
+App -> View : render()
+View -> Templates : require page and layout
+Templates --> View : HTML content
+View --> App : rendered HTML
+App --> HTTP : echo HTML
+HTTP --> Client : 200 HTML page
+
+@enduml
